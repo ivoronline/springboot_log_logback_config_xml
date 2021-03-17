@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- CONSOLE APPENDER -->
+    <appender name="MyConsoleAppenderName" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>My File Appender: %d %p %c{0} %m %n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- FILE APPENDER -->
+    <appender name="MyFileAppenderName" class="ch.qos.logback.core.FileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>My File Appender: %d %p %c{30} %m %n</Pattern>
+        </encoder>
+        <file>logs/app.log</file>
+    </appender>
+
+    <!-- LOGGER -->
+    <logger name="com.ivoronline.springboot_log_logback_config_xml.controllers" level="INFO">
+        <appender-ref ref="MyFileAppenderName"    />
+        <appender-ref ref="MyConsoleAppenderName" />
+    </logger>
+
+    <!-- DISABLE DEFAULT LOGGER (since no appenders are defined) -->
+    <root level="info"> </root>
+
+</configuration>
+
+
+
